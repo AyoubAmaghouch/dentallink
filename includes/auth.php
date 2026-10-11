@@ -1,0 +1,13 @@
+<?php
+declare(strict_types=1);
+require_once __DIR__.'/../config/database.php';
+if(session_status()!==PHP_SESSION_ACTIVE){session_set_cookie_params(['httponly'=>true,'secure'=>!empty($_SERVER['HTTPS']),'samesite'=>'Lax']);session_start();}
+function e(?string $v):string{return htmlspecialchars($v??'',ENT_QUOTES|ENT_SUBSTITUTE,'UTF-8');}
+function text_excerpt(string $text,int $max=130):string{$text=trim($text);if(function_exists('mb_strimwidth'))return mb_strimwidth($text,0,$max,'…','UTF-8');$chars=preg_split('//u',$text,-1,PREG_SPLIT_NO_EMPTY);if($chars===false)return substr($text,0,$max);return count($chars)>$max?implode('',array_slice($chars,0,$max-1)).'…':$text;}
+function csrf_token():string{if(empty($_SESSION['csrf_token']))$_SESSION['csrf_token']=bin2hex(random_bytes(32));return $_SESSION['csrf_token'];}
+function csrf_field():string{return '<input type="hidden" name="csrf_token" value="'.e(csrf_token()).'">';}
+function csrf_check():void{if($_SERVER['REQUEST_METHOD']==='POST'&&!hash_equals($_SESSION['csrf_token']??'',(string)($_POST['csrf_token']??''))){http_response_code(419);exit('Formulaire expiré. Rechargez la page.');}}
+function require_lab():int{if(empty($_SESSION['id_laboratoire'])){header('Location: ../login.php');exit;}return (int)$_SESSION['id_laboratoire'];}
+function require_admin():void{if(empty($_SESSION['id_admin'])){header('Location: login.php');exit;}}
+function redirect(string $url):never{header('Location: '.$url);exit;}
+function upload_files(array $f,string $folder,array $allowed,int $maxBytes=5242880,int $maxFiles=12):array{$saved=[];if(!isset($f['name'])||!is_array($f['name']))return $saved;if(count($f['name'])>$maxFiles)throw new RuntimeException('Trop de fichiers sélectionnés.');$root=dirname(__DIR__).'/assets/uploads/'.$folder;if(!is_dir($root)&&!mkdir($root,0755,true)&&!is_dir($root))throw new RuntimeException('Stockage indisponible.');$fi=new finfo(FILEINFO_MIME_TYPE);$ext=['image/jpeg'=>'jpg','image/png'=>'png','image/webp'=>'webp','application/pdf'=>'pdf'];for($i=0;$i<count($f['name']);$i++){if(($f['error'][$i]??UPLOAD_ERR_NO_FILE)===UPLOAD_ERR_NO_FILE)continue;if($f['error'][$i]!==UPLOAD_ERR_OK||$f['size'][$i]>$maxBytes)throw new RuntimeException('Fichier invalide ou trop volumineux.');$mime=$fi->file($f['tmp_name'][$i]);if(!isset($ext[$mime])||!in_array($mime,$allowed,true))throw new RuntimeException('Format de fichier non autorisé.');$name=bin2hex(random_bytes(16)).'.'.$ext[$mime];if(!move_uploaded_file($f['tmp_name'][$i],$root.'/'.$name))throw new RuntimeException('Impossible d’enregistrer le fichier.');$saved[]='assets/uploads/'.$folder.'/'.$name;}return $saved;}

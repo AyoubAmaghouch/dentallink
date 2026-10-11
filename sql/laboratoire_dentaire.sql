@@ -1,6 +1,6 @@
 -- Structure de la base de données pour DentalLink Morocco
-CREATE DATABASE IF NOT EXISTS `dentallink_morocco` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-USE `dentallink_morocco`;
+CREATE DATABASE IF NOT EXISTS `laboratoire_dentaire` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE `laboratoire_dentaire`;
 
 -- Table des services
 CREATE TABLE IF NOT EXISTS `service` (
