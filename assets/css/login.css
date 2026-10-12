@@ -4,14 +4,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 :root {
-    --primary-color: #2563EB;
-    --primary-hover: #1D4ED8;
-    --bg-color: #F8FAFC;
+    --primary-color: #0647D9;
+    --primary-hover: #061B55;
+    --bg-color: #F5FAFF;
     --card-bg: #FFFFFF;
-    --text-primary: #0F172A;
-    --text-muted: #64748B;
-    --border-color: #E2E8F0;
-    --border-focus: #2563EB;
+    --text-primary: #061B55;
+    --text-muted: #526783;
+    --border-color: #DCE8F5;
+    --border-focus: #0647D9;
     --error-color: #EF4444;
     --error-bg: #FEF2F2;
 }
@@ -80,7 +80,7 @@ form {
 label {
     font-size: 0.875rem;
     font-weight: 500;
-    color: #334155;
+    color: #061B55;
     margin-bottom: -12px;
 }
 
@@ -90,7 +90,7 @@ input[type="password"] {
     width: 100%;
     height: 44px;
     padding: 0 14px;
-    border: 1px solid #CBD5E1;
+    border: 1px solid #DCE8F5;
     border-radius: 6px;
     font-size: 0.925rem;
     color: var(--text-primary);
@@ -101,25 +101,25 @@ input[type="password"] {
 
 input[type="email"]::placeholder,
 input[type="password"]::placeholder {
-    color: #94A3B8;
+    color: #8298B3;
 }
 
 input[type="email"]:hover,
 input[type="password"]:hover {
-    border-color: #94A3B8;
+    border-color: #8298B3;
 }
 
 input[type="email"]:focus,
 input[type="password"]:focus {
     border-color: var(--border-focus);
-    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.08);
+    box-shadow: 0 0 0 3px rgba(6, 71, 217, 0.08);
 }
 
 /* Submit Button */
 button[type="submit"] {
     width: 100%;
     height: 44px;
-    background-color: var(--primary-color);
+    background: linear-gradient(90deg, #061B55 0%, #0647D9 50%, #00C9E8 100%);
     color: #FFFFFF;
     border: none;
     border-radius: 6px;

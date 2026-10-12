@@ -6,6 +6,185 @@
 document.addEventListener('DOMContentLoaded', function () {
 
     /* =========================================
+       0. FOUR-STEP REGISTRATION WIZARD
+       ========================================= */
+
+    const wizard = document.querySelector('[data-registration-wizard]');
+    if (wizard) {
+        const panels = Array.from(wizard.querySelectorAll('[data-form-step]'));
+        const indicators = Array.from(wizard.querySelectorAll('[data-step-indicator]'));
+        const progress = wizard.querySelector('[role="progressbar"]');
+        const progressFill = wizard.querySelector('.wizard-progress-fill');
+        const currentStepText = wizard.querySelector('[data-current-step]');
+        const serviceGroup = wizard.querySelector('[data-services-group]');
+        const serviceOptions = Array.from(wizard.querySelectorAll('input[name="services[]"]'));
+        const password = wizard.querySelector('#mot_de_passe');
+        const passwordConfirmation = wizard.querySelector('#confirmer_mot_de_passe');
+        const documentInput = wizard.querySelector('[data-document-file]');
+        const imageInput = wizard.querySelector('[data-images-file]');
+        const imageSummary = wizard.querySelector('[data-image-summary]');
+        const stepNames = ['Identité et contact', 'Sécurité et présentation', 'Services proposés', 'Documents et photos'];
+        const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+        let activeStep = 0;
+        let transitioning = false;
+
+        const updateProgress = () => {
+            indicators.forEach((indicator, index) => {
+                indicator.classList.toggle('is-current', index === activeStep);
+                indicator.classList.toggle('is-complete', index < activeStep);
+                if (index === activeStep) indicator.setAttribute('aria-current', 'step');
+                else indicator.removeAttribute('aria-current');
+            });
+            if (progress) progress.setAttribute('aria-valuenow', String(activeStep + 1));
+            if (progressFill) progressFill.style.width = `${((activeStep + 1) / panels.length) * 100}%`;
+            if (currentStepText) currentStepText.textContent = `Étape ${activeStep + 1} sur ${panels.length} — ${stepNames[activeStep]}`;
+        };
+
+        const setStep = (nextStep, direction = 1, animate = true) => {
+            if (transitioning || nextStep < 0 || nextStep >= panels.length || nextStep === activeStep) return;
+            const outgoing = panels[activeStep];
+            const incoming = panels[nextStep];
+            const shouldAnimate = animate && !reducedMotion.matches;
+            transitioning = true;
+
+            const showIncoming = () => {
+                outgoing.hidden = true;
+                outgoing.setAttribute('aria-hidden', 'true');
+                outgoing.classList.remove('is-leaving', 'is-backward');
+                incoming.hidden = false;
+                incoming.setAttribute('aria-hidden', 'false');
+                incoming.classList.remove('is-entering', 'is-backward');
+                activeStep = nextStep;
+                updateProgress();
+                if (shouldAnimate) {
+                    if (direction < 0) incoming.classList.add('is-backward');
+                    void incoming.offsetWidth;
+                    incoming.classList.add('is-entering');
+                    window.setTimeout(() => incoming.classList.remove('is-entering', 'is-backward'), 320);
+                }
+                transitioning = false;
+            };
+
+            if (shouldAnimate) {
+                if (direction < 0) outgoing.classList.add('is-backward');
+                outgoing.classList.add('is-leaving');
+                window.setTimeout(showIncoming, 180);
+            } else {
+                showIncoming();
+            }
+        };
+
+        const clearStepMessage = panel => {
+            const message = panel.querySelector('[data-step-message]');
+            if (message) {
+                message.hidden = true;
+                message.textContent = '';
+            }
+            if (serviceGroup) serviceGroup.classList.remove('has-error');
+        };
+
+        const validateStep = index => {
+            const panel = panels[index];
+            clearStepMessage(panel);
+
+            if (password && passwordConfirmation && index === 1) {
+                passwordConfirmation.setCustomValidity(
+                    passwordConfirmation.value && password.value !== passwordConfirmation.value
+                        ? 'Les deux mots de passe ne correspondent pas.'
+                        : ''
+                );
+            }
+
+            if (index === 3) {
+                if (documentInput) {
+                    const documentFile = documentInput.files && documentInput.files[0];
+                    documentInput.setCustomValidity(documentFile && documentFile.size > 10 * 1024 * 1024
+                        ? 'Le document PDF ne doit pas dépasser 10 Mo.'
+                        : '');
+                }
+                if (imageInput) {
+                    const files = Array.from(imageInput.files || []);
+                    let fileError = '';
+                    if (files.length > 12) fileError = 'Vous pouvez sélectionner 12 photos au maximum.';
+                    else if (files.some(file => file.size > 5 * 1024 * 1024)) fileError = 'Chaque photo doit peser 5 Mo maximum.';
+                    imageInput.setCustomValidity(fileError);
+                    if (imageSummary) {
+                        imageSummary.textContent = files.length
+                            ? `${files.length} photo${files.length > 1 ? 's' : ''} sélectionnée${files.length > 1 ? 's' : ''}`
+                            : 'Aucune photo sélectionnée';
+                    }
+                }
+            }
+
+            const invalidControl = Array.from(panel.querySelectorAll('input, textarea, select'))
+                .find(control => !control.checkValidity());
+            if (invalidControl) return { valid: false, control: invalidControl };
+
+            if (index === 2 && !serviceOptions.some(option => option.checked)) {
+                const message = panel.querySelector('[data-step-message]');
+                if (message) {
+                    message.textContent = 'Sélectionnez au moins un service pour continuer.';
+                    message.hidden = false;
+                }
+                if (serviceGroup) serviceGroup.classList.add('has-error');
+                return { valid: false, control: serviceOptions[0] || null };
+            }
+
+            return { valid: true, control: null };
+        };
+
+        wizard.querySelectorAll('[data-next]').forEach(button => button.addEventListener('click', () => {
+            const result = validateStep(activeStep);
+            if (!result.valid) {
+                if (result.control) result.control.reportValidity();
+                return;
+            }
+            setStep(activeStep + 1, 1);
+        }));
+
+        wizard.querySelectorAll('[data-previous]').forEach(button => button.addEventListener('click', () => {
+            setStep(activeStep - 1, -1);
+        }));
+
+        serviceOptions.forEach(option => option.addEventListener('change', () => {
+            option.closest('.service-option')?.classList.toggle('is-selected', option.checked);
+            if (serviceOptions.some(item => item.checked)) clearStepMessage(panels[2]);
+        }));
+
+        if (password && passwordConfirmation) {
+            const updatePasswordMatch = () => {
+                passwordConfirmation.setCustomValidity(
+                    passwordConfirmation.value && password.value !== passwordConfirmation.value
+                        ? 'Les deux mots de passe ne correspondent pas.'
+                        : ''
+                );
+            };
+            password.addEventListener('input', updatePasswordMatch);
+            passwordConfirmation.addEventListener('input', updatePasswordMatch);
+        }
+
+        if (documentInput) documentInput.addEventListener('change', () => validateStep(3));
+        if (imageInput) imageInput.addEventListener('change', () => validateStep(3));
+
+        wizard.addEventListener('submit', event => {
+            for (let index = 0; index < panels.length; index += 1) {
+                const result = validateStep(index);
+                if (result.valid) continue;
+                event.preventDefault();
+                if (index !== activeStep) setStep(index, index < activeStep ? -1 : 1, false);
+                if (result.control) window.requestAnimationFrame(() => result.control.reportValidity());
+                return;
+            }
+        });
+
+        panels.forEach((panel, index) => {
+            panel.hidden = index !== 0;
+            panel.setAttribute('aria-hidden', index === 0 ? 'false' : 'true');
+        });
+        updateProgress();
+    }
+
+    /* =========================================
        1. MULTI-SELECT COMPONENT
        ========================================= */
 
