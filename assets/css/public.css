@@ -981,3 +981,155 @@ video {
         margin-top: 18px;
     }
 }
+
+.maps-link{display:inline-flex;align-items:center;gap:6px;color:#0647D9;font-size:12px;font-weight:750;text-decoration:none}.maps-link:hover{color:#061B55;text-decoration:underline}.details-card .maps-link{width:100%;justify-content:center;margin:8px 0 2px;padding:9px 12px;border:1px solid #DCE8F5;border-radius:10px;background:#F5FAFF}.lab-content .maps-link{margin:0 0 12px}
+
+/* Detail page refinements: scoped below the shared public navbar. */
+.details-layout{align-items:start;gap:clamp(22px,3vw,36px)}
+.details-layout>div:first-child{min-width:0}
+.gallery-main{border:1px solid var(--line);box-shadow:0 14px 34px rgba(6,27,85,.09);transition:opacity .22s ease,transform .22s ease}
+.gallery-main.is-changing{opacity:.45;transform:scale(.995)}
+.thumbs{padding:2px 1px 5px}
+.thumb-button{padding:0;border:0;border-radius:13px;background:transparent;flex:none;cursor:pointer}
+.thumb{display:block;transition:border-color .18s ease,transform .18s ease,box-shadow .18s ease}
+.thumb-button:hover .thumb{transform:translateY(-2px)}
+.thumb.active{border-color:var(--blue);box-shadow:0 0 0 3px rgba(0,201,232,.18)}
+.details-title{margin-top:30px;color:var(--deep)}
+.details-copy{font-size:15px;line-height:1.8}
+.service-list{margin-top:13px}
+.details-card{border-radius:20px;box-shadow:0 14px 34px rgba(6,27,85,.08)}
+.details-card .detail-email-button{background:linear-gradient(100deg,#061B55 0%,#0647D9 55%,#00C9E8 100%);border:0;color:#fff}
+.details-card .detail-mailto-fallback{font-size:12px}
+.details-card .btn:disabled{opacity:.6;cursor:not-allowed;transform:none}
+@media(max-width:700px){.details-layout{gap:20px}.gallery-main{height:290px;border-radius:17px}.details-title{margin-top:23px;font-size:29px}}
+@media(prefers-reduced-motion:reduce){.gallery-main,.thumb{transition:none}}
+/* Contact panel inspired by the provided laboratory detail reference. */
+.detail-contact-card{position:static;overflow:hidden;padding:0;border-radius:24px;background:linear-gradient(145deg,#fff 0%,#f7fbff 100%);box-shadow:0 16px 42px rgba(6,27,85,.09)}
+.detail-contact-head{position:relative;display:flex;min-height:158px;align-items:center;justify-content:space-between;gap:8px;padding:25px 25px 22px;border-bottom:1px solid #e4eefb;background:radial-gradient(ellipse at 85% 45%,rgba(211,232,255,.68),transparent 43%),linear-gradient(120deg,#fff,#f5faff)}
+.detail-contact-head>div{position:relative;z-index:1;max-width:76%}
+.detail-contact-head h3{margin:0 0 7px;color:var(--deep);font-size:clamp(20px,2.1vw,28px);line-height:1.2;letter-spacing:-.5px}
+.detail-contact-head p{margin:0;color:#637da6;font-size:14px;line-height:1.5}
+.detail-head-accent{display:block;width:58px;height:4px;margin-top:16px;border-radius:99px;background:linear-gradient(90deg,var(--blue),var(--teal))}
+.detail-tooth-art{width:130px;max-width:38%;height:auto;flex:none;margin:-8px -7px -15px 0}
+.detail-contact-list{padding:0 24px}
+.detail-contact-row{display:grid;grid-template-columns:42px minmax(0,1fr) auto auto;align-items:center;gap:12px;padding:14px 4px;border-bottom:1px solid #e1ebf8;min-width:0}
+.detail-contact-icon{width:42px;height:42px;display:grid;place-items:center;border-radius:14px;background:#e8f3ff;color:var(--blue);font-size:21px;font-weight:800}
+.detail-contact-copy{display:grid;gap:2px;min-width:0}
+.detail-contact-copy>span{color:#637da6;font-size:12px}
+.detail-contact-copy strong{color:var(--deep);font-size:14px;line-height:1.4;overflow-wrap:anywhere}
+.detail-contact-copy strong a{color:var(--blue);text-decoration:underline;text-underline-offset:2px}
+.detail-row-action{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:40px;padding:8px 11px;border:1px solid #dbe9fb;border-radius:13px;background:#f5faff;color:var(--blue);font-size:12px;font-weight:750;white-space:nowrap}
+.detail-row-action:hover{border-color:#a8dff3;background:#ecfaff}
+.detail-copy-button{width:39px;height:39px;border:1px solid #dbe9fb;border-radius:13px;background:#f7fbff;color:var(--deep);font-size:21px;cursor:pointer}
+.detail-copy-button:hover,.detail-copy-button.is-copied{border-color:#9be8d2;background:#e7fbf3;color:#087f5b}
+.detail-map-row .detail-contact-icon{background:#e5fbf4;color:#0a9c82}
+.detail-map-action{background:#e7fbf4;border-color:#d0f5e9}
+.detail-contact-actions{display:grid;gap:10px;padding:20px 24px 16px}
+.detail-contact-actions .btn{width:100%;min-height:52px;margin:0;border-radius:14px;font-size:14px}
+.detail-call-button{justify-content:space-between;padding:12px 17px;background:linear-gradient(100deg,#061b55 0%,#0647d9 58%,#00c9e8 100%);color:#fff;box-shadow:0 9px 20px rgba(6,71,217,.16)}
+.detail-email-button{justify-content:space-between;padding:12px 17px;border:1px solid #cfe1fa;background:#f7fbff;color:var(--blue)}
+.detail-email-button:hover{background:#edf6ff}
+.detail-email-button:disabled{opacity:.58;cursor:not-allowed;transform:none}
+.detail-back-button{border-color:#dbe9fb;background:transparent;color:var(--deep)}
+.detail-trust-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;margin:0 20px 20px;padding:15px 10px;border-radius:18px;background:linear-gradient(120deg,#eff7ff,#f2fbff)}
+.detail-trust-grid>div{display:grid;align-content:start;gap:5px;padding:0 10px;min-width:0}
+.detail-trust-grid>div+div{border-left:1px solid #dbe9fb}
+.detail-trust-icon{display:grid;place-items:center;width:42px;height:42px;margin-bottom:2px;border-radius:13px;background:#e0f0ff;color:var(--blue);font-size:22px;font-weight:800}
+.detail-trust-grid strong{color:var(--deep);font-size:11px;line-height:1.3}
+.detail-trust-grid>div>span:last-child{color:#637da6;font-size:10px;line-height:1.45}
+@media(max-width:1100px){.detail-contact-row{grid-template-columns:38px minmax(0,1fr) auto;gap:9px}.detail-contact-row .detail-copy-button{grid-column:3;grid-row:1}.detail-contact-row .detail-row-action{grid-column:2 / 4;justify-self:start}.detail-map-row .detail-row-action{grid-column:2 / 4}.detail-contact-icon{width:38px;height:38px}}
+@media(max-width:700px){.detail-contact-head{min-height:142px;padding:20px 18px}.detail-contact-head>div{max-width:72%}.detail-tooth-art{width:105px}.detail-contact-list{padding:0 15px}.detail-contact-row{grid-template-columns:40px minmax(0,1fr) auto;padding:12px 2px}.detail-contact-actions{padding:16px 15px}.detail-trust-grid{margin:0 12px 14px;padding:13px 5px}.detail-trust-grid>div{padding:0 7px}.detail-trust-grid strong{font-size:10px}.detail-trust-grid>div>span:last-child{font-size:9px}}.detail-svg{display:inline-block;width:19px;height:19px;flex:none;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle}
+.detail-contact-icon .detail-svg{width:22px;height:22px;stroke-width:2.1}
+.detail-copy-button .detail-svg{width:19px;height:19px}
+.detail-row-action .detail-svg{width:16px;height:16px}
+.detail-contact-actions .detail-svg{width:21px;height:21px}
+.detail-trust-icon .detail-svg{width:27px;height:27px}
+.detail-contact-copy strong{overflow-wrap:anywhere;word-break:normal}
+.detail-contact-copy strong a .detail-svg{width:16px;height:16px}
+/* Modern laboratory details gallery and contact actions. */
+.details-layout{gap:clamp(24px,3.5vw,44px);align-items:start}
+.gallery-main{height:clamp(310px,42vw,520px);aspect-ratio:4/3;border-radius:24px;background:linear-gradient(135deg,#edf6ff,#dff7fc);box-shadow:0 18px 46px rgba(6,27,85,.12);transition:opacity .28s ease,transform .35s ease}
+.gallery-main.is-changing{opacity:.25;transform:scale(.985)}
+.thumbs{gap:12px;margin-top:14px;padding:3px 2px 8px}
+.thumb-button{overflow:hidden;border-radius:14px;box-shadow:0 4px 14px rgba(6,27,85,.08);transition:transform .2s ease,box-shadow .2s ease}
+.thumb-button:hover{transform:translateY(-3px);box-shadow:0 9px 20px rgba(6,27,85,.14)}
+.thumb{width:96px;height:72px;border:2px solid transparent;border-radius:14px;transition:border-color .2s ease,opacity .2s ease}
+.thumb.active{border-color:var(--blue);box-shadow:0 0 0 3px rgba(0,201,232,.18)}
+.details-title{margin-top:32px;font-size:clamp(28px,3vw,38px);letter-spacing:-1.2px}
+.details-card.detail-contact-card{border:1px solid rgba(8,123,255,.13);border-radius:24px;background:rgba(255,255,255,.92);box-shadow:0 20px 50px rgba(6,27,85,.10);backdrop-filter:blur(12px)}
+.detail-contact-row{padding:16px 5px;border-color:#e8eff8}
+.detail-contact-icon{border-radius:15px;background:linear-gradient(145deg,#e9f4ff,#def8fc);box-shadow:inset 0 1px 0 rgba(255,255,255,.8)}
+.detail-row-action,.detail-copy-button{border-radius:13px;transition:background .18s ease,border-color .18s ease,transform .18s ease,box-shadow .18s ease}
+.detail-row-action:hover,.detail-copy-button:hover{transform:translateY(-1px);box-shadow:0 6px 14px rgba(6,71,217,.10)}
+.detail-contact-actions{gap:11px;padding-top:22px}
+.detail-contact-actions .btn{min-height:54px;border-radius:16px;transition:transform .2s ease,box-shadow .2s ease,background .2s ease}
+.detail-contact-actions .btn:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(6,71,217,.16)}
+.detail-call-button{background:linear-gradient(105deg,#061b55 0%,#0647d9 58%,#00c9e8 100%);box-shadow:0 10px 24px rgba(6,71,217,.19)}
+.details-card.detail-contact-card .detail-email-button{border:1px solid #d7e6f7;background:linear-gradient(120deg,#fff,#f5faff);color:var(--deep);box-shadow:0 5px 16px rgba(6,27,85,.045)}
+.details-card.detail-contact-card .detail-back-button{background:#fff;border-color:#dce8f5}
+@media(max-width:700px){.gallery-main{height:auto;aspect-ratio:4/3;border-radius:19px}.thumb{width:82px;height:62px}.details-title{margin-top:26px}.detail-contact-row{padding:13px 2px}}
+@media(prefers-reduced-motion:reduce){.gallery-main,.thumb,.thumb-button,.detail-row-action,.detail-contact-actions .btn{transition:none}}
+.address-map-link{text-decoration:underline;text-decoration-color:#aac5e8;text-underline-offset:3px}.address-map-link:hover{color:var(--blue)}
+
+.detail-contact-actions{width:100%;min-width:0}.detail-contact-actions .btn{display:flex;gap:12px;white-space:nowrap;min-width:0}.detail-contact-actions .btn .detail-svg:first-child{margin-right:2px}.detail-contact-actions .btn .detail-svg:last-child{margin-left:auto}
+.address-map-link{display:inline-flex;align-items:center;gap:7px}
+.google-maps-mark{display:inline-block;width:16px;height:23px;flex:none;object-fit:contain;vertical-align:middle}
+.detail-contact-actions .detail-back-button{justify-content:center;gap:10px;text-align:center}
+.detail-contact-actions .detail-back-button .detail-svg{margin:0!important}.detail-contact-copy .address-map-link{text-decoration:none}
+.detail-map-action{background:#e7fbf4;border-color:#d0f5e9;color:#087f72}
+.detail-map-action .google-maps-mark{width:16px;height:23px}
+@media(max-width:1100px){.detail-contact-row.detail-map-row .detail-row-action{grid-column:3;justify-self:stretch;padding:7px 8px;font-size:11px;white-space:nowrap}}
+/* Clear presentation card for the laboratory description and services. */
+.details-info-card{margin-top:30px;padding:clamp(22px,3vw,34px);border:1px solid #dce8f5;border-radius:22px;background:linear-gradient(145deg,#fff 0%,#fbfdff 100%);box-shadow:0 14px 34px rgba(6,27,85,.07)}
+.details-info-heading{padding-bottom:17px;border-bottom:1px solid #e6eef8}
+.details-info-kicker{display:block;margin-bottom:6px;color:#087bff;font-size:11px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase}
+.details-info-heading .details-title{margin:0;color:#061b55;font-size:clamp(26px,3vw,34px);line-height:1.2;letter-spacing:-.8px}
+.details-info-card .details-copy{margin:18px 0 27px;color:#354c70;font-size:17px;line-height:1.8;white-space:pre-line;overflow-wrap:anywhere}
+.details-services-heading{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:12px}
+.details-services-heading h3{margin:0;color:#061b55;font-size:19px;line-height:1.35}
+.details-services-heading>span{color:#637da6;font-size:12px}
+.details-info-card .service-list{gap:9px;margin:0}
+.details-info-card .chip{padding:8px 13px;border-color:#d5e6fb;border-radius:999px;background:#f3f8ff;color:#0647d9;font-size:13px;font-weight:700}
+.details-info-card .details-location{font-size:14px}
+@media(max-width:700px){.details-info-card{margin-top:22px;padding:20px 17px;border-radius:18px}.details-info-card .details-copy{margin:15px 0 23px;font-size:16px;line-height:1.75}.details-services-heading{align-items:flex-start;flex-direction:column;gap:3px}.details-info-heading .details-title{font-size:27px}}
+/* Refined laboratory detail header */
+.details-page-hero{position:relative;overflow:hidden;padding:24px 0 38px;background:radial-gradient(ellipse at 88% 18%,rgba(0,201,232,.12),transparent 34%),linear-gradient(120deg,#f5faff 0%,#fff 58%,#eef8ff 100%)}
+.details-page-hero:after{content:"";position:absolute;width:300px;height:300px;top:-190px;right:max(24px,calc((100vw - 1160px)/2));border:1px solid rgba(6,71,217,.08);border-radius:50%;box-shadow:0 0 0 34px rgba(6,71,217,.025),0 0 0 70px rgba(0,201,232,.025);pointer-events:none}
+.details-hero-inner{position:relative;z-index:1}.details-breadcrumb{display:flex;align-items:center;flex-wrap:wrap;gap:11px;margin-bottom:25px;color:#8292aa;font-size:13px}.details-breadcrumb a{color:#0647d9;font-weight:650}.details-breadcrumb a:hover{color:#00aeca}
+.details-hero-content{display:flex;align-items:center;justify-content:space-between;gap:24px}.details-hero-copy{min-width:0}.details-verified{gap:8px;padding:7px 12px;font-size:12px}.details-verified:before{display:none}.details-verified-dot{width:8px;height:8px;border-radius:50%;background:#00b9d6;box-shadow:0 0 0 3px rgba(0,201,232,.14)}
+.details-hero-content h1{margin:14px 0 8px;color:#061b55;font-size:clamp(36px,4.5vw,54px);line-height:1.08;letter-spacing:-1.9px;overflow-wrap:anywhere}.details-hero-address{display:flex;align-items:center;flex-wrap:wrap;gap:8px;color:#526783;font-size:16px}.details-hero-pin{display:inline-grid;place-items:center;width:24px;height:24px;border-radius:8px;color:#0647d9;background:#e8f3ff;font-size:19px;line-height:1}.details-address-separator{color:#00aeca}
+.details-hero-mark{position:relative;display:grid;place-items:center;flex:0 0 78px;width:78px;height:78px;border:1px solid rgba(6,71,217,.12);border-radius:25px;color:#fff;background:linear-gradient(145deg,#0647d9,#00bddd);box-shadow:0 14px 30px rgba(6,71,217,.16);transform:rotate(3deg)}.details-hero-mark span{font-size:23px;font-weight:850;letter-spacing:-1px}.details-hero-mark i{position:absolute;right:-5px;bottom:-5px;width:19px;height:19px;border:4px solid #f5faff;border-radius:50%;background:#16c99a}
+@media(max-width:700px){.details-page-hero{padding:19px 0 27px}.details-breadcrumb{gap:8px;margin-bottom:20px;font-size:12px}.details-hero-content h1{margin-top:12px;font-size:clamp(32px,9vw,42px);letter-spacing:-1.2px}.details-hero-address{font-size:14px;gap:6px}.details-hero-mark{flex-basis:54px;width:54px;height:54px;border-radius:18px}.details-hero-mark span{font-size:17px}.details-hero-mark i{width:15px;height:15px;border-width:3px}}
+/* High-contrast laboratory description */
+.details-info-card .details-copy{color:#171c27;font-size:18px;font-weight:450;line-height:1.85;letter-spacing:.005em}
+@media(max-width:700px){.details-info-card .details-copy{color:#171c27;font-size:17px;line-height:1.8}}
+/* Directory card interactions and photo transitions */
+.lab-card{position:relative;cursor:pointer}.lab-card .card-link:after{content:"";position:absolute;inset:0;z-index:1}.lab-card:focus-within{outline:3px solid #00c9e8;outline-offset:3px}.lab-card .lab-photo{transition:opacity .35s ease,transform .5s ease}.directory-card-photo.is-changing{opacity:.35;transform:scale(1.02)}.directory-photo-count{position:absolute;z-index:2;top:12px;right:12px;display:flex;align-items:center;gap:5px;padding:5px 8px;border-radius:8px;background:rgba(6,20,42,.78);color:#fff;font-size:11px;font-weight:700}.directory-photo-count svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}.directory-location-icon{width:15px;height:15px;flex:none;fill:none;stroke:#087bff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}.directory-card .chip{display:inline-flex;align-items:center;gap:5px}.directory-tooth-icon{width:13px;height:13px;flex:none;fill:none;stroke:#0647d9;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.directory-verified{display:inline-flex;align-items:center;gap:5px;margin:0 0 7px;padding:4px 8px;border:1px solid #c7f2e2;border-radius:999px;background:#effcf7;color:#087c60;font-size:10px;font-weight:750}.directory-verified svg{width:13px;height:13px;fill:none;stroke:#0aa77f;stroke-width:2}.directory-location-icon{width:15px;height:15px;flex:none;fill:none;stroke:#087bff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}.lab-card{cursor:pointer}.lab-card .card-link:after{content:"";position:absolute;inset:0;z-index:1}.lab-card .directory-photo-count{z-index:2}
+/* Reference-style directory gallery cards */
+.directory .cards{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}.directory .lab-card{padding:10px;border:1px solid #dce8f5;border-radius:26px;background:linear-gradient(145deg,#fff,#fbfdff);box-shadow:0 15px 42px rgba(6,27,85,.08);transition:transform .25s ease,box-shadow .25s ease}.directory .lab-card:hover{transform:translateY(-4px);box-shadow:0 22px 55px rgba(6,27,85,.13)}.directory-gallery{position:relative;overflow:hidden;height:clamp(230px,31vw,390px);border-radius:19px;background:#eaf4ff}.directory-gallery .lab-photo{width:100%;height:100%;object-fit:cover;transition:opacity .28s ease,transform .45s ease}.directory-gallery .lab-photo.is-changing{opacity:.4;transform:scale(1.02)}.directory-gallery .directory-verified{position:absolute;z-index:3;left:20px;top:20px;margin:0;padding:10px 16px;background:rgba(238,253,246,.97);font-size:15px;box-shadow:0 5px 16px rgba(6,27,85,.1)}.directory-gallery .directory-verified svg{width:22px;height:22px}.directory-photo-count{position:absolute;z-index:3;right:15px;bottom:15px;top:auto;padding:9px 13px;border-radius:12px;font-size:14px}.directory-photo-count svg{width:19px;height:19px}.directory-gallery-arrow{position:absolute;z-index:4;top:50%;display:grid;place-items:center;width:52px;height:52px;transform:translateY(-50%);border:0;border-radius:50%;background:#fff;color:#0647d9;box-shadow:0 5px 18px rgba(6,27,85,.2);cursor:pointer;transition:transform .2s ease,background .2s ease}.directory-gallery-arrow:hover{background:#eaf5ff;transform:translateY(-50%) scale(1.06)}.directory-gallery-arrow svg{width:25px;height:25px;fill:none;stroke:currentColor;stroke-width:2.8;stroke-linecap:round;stroke-linejoin:round}.directory-gallery-prev{left:16px}.directory-gallery-next{right:16px}.directory-gallery-dots{position:absolute;z-index:4;left:50%;bottom:17px;display:flex;gap:10px;transform:translateX(-50%)}.directory-gallery-dot{width:12px;height:12px;padding:0;border:0;border-radius:50%;background:#fff;box-shadow:0 1px 4px rgba(6,27,85,.2);cursor:pointer}.directory-gallery-dot.active{background:#0647d9}.directory .lab-content{padding:22px 24px 16px}.directory .lab-title{margin:0 0 8px;font-size:clamp(25px,3vw,36px);letter-spacing:-1px}.directory .lab-location{font-size:17px;color:#526783}.directory-location-icon{width:26px;height:26px}.directory .lab-description{min-height:0;margin:18px 0 20px;font-size:18px;line-height:1.6;color:#526783}.directory .details-services-heading,.directory-services-title{display:flex;align-items:center;gap:12px;margin:0 0 12px;color:#061b55;font-size:21px;font-weight:800}.directory-services-title svg{width:26px;height:26px;fill:none;stroke:#061b55;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}.directory .chips{gap:10px;margin:0 0 20px}.directory .chip{padding:9px 14px;font-size:14px;border-color:#dceafe;background:#f1f7ff}.directory .directory-card-cta,.directory .card-link{position:relative;z-index:2;display:flex;align-items:center;justify-content:center;gap:12px;width:100%;padding:17px 20px;border-radius:15px;background:linear-gradient(100deg,#0647d9,#087bff 55%,#00bddd);color:#fff;font-size:20px;font-weight:800;text-align:center;box-shadow:0 10px 24px rgba(6,71,217,.19)}.directory .card-link:after{z-index:1}.directory .card-link:hover{color:#fff}.directory .lab-card .card-link{font-size:0}.directory .lab-card .card-link:before{content:"Voir le laboratoire";font-size:18px}.directory .lab-card .card-link:after{content:"→";position:static;inset:auto;font-size:24px}.directory-verified{font-size:12px}.directory .directory-photo-count{pointer-events:none}
+@media(max-width:760px){.directory .cards{grid-template-columns:1fr;gap:18px}.directory-gallery{height:clamp(220px,65vw,330px)}.directory-gallery .directory-verified{left:12px;top:12px;padding:7px 10px;font-size:12px}.directory-gallery .directory-verified svg{width:18px;height:18px}.directory-gallery-arrow{width:42px;height:42px}.directory-gallery-arrow svg{width:21px;height:21px}.directory-gallery-prev{left:10px}.directory-gallery-next{right:10px}.directory .lab-content{padding:18px 12px 10px}.directory .lab-title{font-size:26px}.directory .lab-description{font-size:16px}.directory .chip{font-size:12px;padding:7px 10px}.directory .lab-card .card-link{padding:14px;font-size:0}}.directory .lab-card .card-link{font-size:19px}.directory .lab-card .card-link:after{content:"";position:absolute;inset:0;z-index:1}.directory .lab-card .card-link:before{content:none}
+/* Compact directory cards with a full-card destination link */
+@media(min-width:1000px){.directory .cards{grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}}
+@media(min-width:761px) and (max-width:999px){.directory .cards{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}}
+.directory .lab-card{padding:8px;border-radius:21px}
+.directory-gallery{height:clamp(175px,19vw,230px);border-radius:15px}
+.directory-gallery .directory-verified{left:12px;top:12px;padding:6px 9px;font-size:11px}
+.directory-gallery .directory-verified svg{width:16px;height:16px}
+.directory-gallery-arrow{width:40px;height:40px}
+.directory-gallery-arrow svg{width:20px;height:20px}
+.directory-gallery-prev{left:10px}.directory-gallery-next{right:10px}
+.directory-gallery-dots{bottom:11px;gap:7px}.directory-gallery-dot{width:9px;height:9px}
+.directory .directory-photo-count{right:10px;bottom:10px;padding:6px 9px;font-size:11px}
+.directory .lab-content{padding:15px 12px 10px}
+.directory .lab-title{font-size:23px;letter-spacing:-.5px}
+.directory .lab-location{font-size:14px}.directory-location-icon{width:18px;height:18px}
+.directory .lab-description{margin:11px 0 14px;font-size:14px;line-height:1.55}
+.directory-services-title{gap:8px;margin-bottom:9px;font-size:16px}.directory-services-title svg{width:20px;height:20px}
+.directory .chips{gap:7px;margin-bottom:13px}.directory .chip{padding:6px 9px;font-size:11px}
+.directory .directory-tooth-icon{width:12px;height:12px}
+.directory .lab-card .card-link{position:static;z-index:auto;padding:12px 14px;border-radius:11px;font-size:15px}
+.directory .lab-card .card-link:after{content:"";position:absolute;inset:0;z-index:1}
+.directory .lab-card .card-link:before{content:none}
+.directory-gallery-arrow,.directory-gallery-dots,.directory-gallery .directory-verified,.directory-gallery .directory-photo-count{z-index:4}
+@media(max-width:760px){.directory-gallery{height:clamp(190px,58vw,265px)}.directory .lab-card .card-link{padding:12px;font-size:15px}}

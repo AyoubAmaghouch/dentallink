@@ -1127,3 +1127,9 @@ p[style*="color: red"],
     .wizard-panel.is-entering,
     .wizard-panel.is-leaving { animation: none; }
 }
+
+/* Registration header logo */
+.page-header .register-brand { display: inline-flex; align-items: center; justify-content: center; margin-bottom: 6px; }
+.page-header .register-brand-logo { display: block; width: 220px; max-width: min(72vw, 220px); height: 68px; object-fit: contain; }
+.field-help { display:block; margin-top:-1px; color:var(--slate-500); font-size:.76rem; line-height:1.45; }
+@media (max-width: 480px) { .page-header .register-brand-logo { width: 184px; height: 58px; } }

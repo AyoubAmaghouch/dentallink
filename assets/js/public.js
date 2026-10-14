@@ -7,13 +7,51 @@ document.addEventListener('DOMContentLoaded',()=>{
             toggle.setAttribute('aria-expanded',String(open));
         });
     }
-    const main=document.getElementById('gallery-main');
-    document.querySelectorAll('.thumb-button').forEach(button=>button.addEventListener('click',()=>{
-        if(main)main.src=button.dataset.src;
-        document.querySelectorAll('.thumb').forEach(img=>img.classList.remove('active'));
-        button.querySelector('.thumb')?.classList.add('active');
+    document.querySelectorAll('[data-copy]').forEach(button=>button.addEventListener('click',async()=>{
+        const value=button.dataset.copy||'';
+        try{
+            if(navigator.clipboard&&window.isSecureContext){await navigator.clipboard.writeText(value);}
+            else{const field=document.createElement('textarea');field.value=value;field.setAttribute('readonly','');field.style.position='fixed';field.style.opacity='0';document.body.appendChild(field);field.select();document.execCommand('copy');field.remove();}
+            button.classList.add('is-copied');button.textContent='✓';button.setAttribute('aria-label','Copié');
+            window.setTimeout(()=>{button.classList.remove('is-copied');button.innerHTML='<svg class="detail-svg" viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="8" width="13" height="13" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/></svg>';button.setAttribute('aria-label','Copier')},1400);
+        }catch(error){button.setAttribute('aria-label','Copie impossible');}
     }));
-    const carousel=document.querySelector('[data-hero-carousel]');
+document.querySelectorAll('.directory-card-photo[data-photos]').forEach(image=>{
+        let photos=[];
+        try{photos=JSON.parse(image.dataset.photos||'[]')}catch(error){return}
+        if(photos.length<2)return;
+        const card=image.closest('.lab-card');
+        const dots=Array.from(card?.querySelectorAll('[data-gallery-index]')||[]);
+        let index=0;
+        const showPhoto=next=>{
+            index=(next+photos.length)%photos.length;
+            image.classList.add('is-changing');
+            window.setTimeout(()=>{image.src=photos[index];image.classList.remove('is-changing')},120);
+            dots.forEach((dot,dotIndex)=>dot.classList.toggle('active',dotIndex===index));
+        };
+        card?.querySelector('[data-gallery-prev]')?.addEventListener('click',event=>{event.preventDefault();event.stopPropagation();showPhoto(index-1)});
+        card?.querySelector('[data-gallery-next]')?.addEventListener('click',event=>{event.preventDefault();event.stopPropagation();showPhoto(index+1)});
+        dots.forEach((dot,dotIndex)=>dot.addEventListener('click',event=>{event.preventDefault();event.stopPropagation();showPhoto(dotIndex)}));
+        window.setInterval(()=>showPhoto(index+1),1500);
+    });
+    const main=document.getElementById('gallery-main');
+    const galleryButtons=Array.from(document.querySelectorAll('.thumb-button'));
+    if(main&&galleryButtons.length){
+        let activePhoto=Math.max(0,galleryButtons.findIndex(button=>button.querySelector('.thumb')?.classList.contains('active')));
+        const showPhoto=index=>{
+            activePhoto=(index+galleryButtons.length)%galleryButtons.length;
+            const button=galleryButtons[activePhoto];
+            main.classList.add('is-changing');
+            window.setTimeout(()=>{main.src=button.dataset.src;main.classList.remove('is-changing')},110);
+            galleryButtons.forEach((item,itemIndex)=>{
+                const thumb=item.querySelector('.thumb');
+                thumb?.classList.toggle('active',itemIndex===activePhoto);
+                item.setAttribute('aria-current',itemIndex===activePhoto?'true':'false');
+            });
+        };
+        galleryButtons.forEach((button,index)=>button.addEventListener('click',()=>showPhoto(index)));
+        window.setInterval(()=>showPhoto(activePhoto+1),5000);
+    }    const carousel=document.querySelector('[data-hero-carousel]');
     if(!carousel)return;
     const slots=Array.from(carousel.querySelectorAll('.hero-carousel-image'));
     const caption=carousel.closest('.hero-art')?.querySelector('[data-hero-caption]');

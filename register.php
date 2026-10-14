@@ -16,7 +16,7 @@ require __DIR__ . '/includes/header.php';
 ?>
 <div class="page-wrapper register-page">
     <header class="page-header">
-        <a class="register-brand" href="index.php" aria-label="DentalLink Morocco, accueil">DentalLink</a>
+        <a class="register-brand" href="index.php" aria-label="DentalLink Morocco, accueil"><img src="assets/images/dental_link.png" alt="DentalLink Morocco" class="register-brand-logo"></a>
         <p class="header-sub">Plateforme des laboratoires dentaires au Maroc</p>
     </header>
 
@@ -60,6 +60,7 @@ require __DIR__ . '/includes/header.php';
                     <div class="field-group"><label for="email">Adresse e-mail</label><input id="email" name="email" type="email" autocomplete="email" required></div>
                     <div class="field-group"><label for="adresse">Adresse</label><input id="adresse" name="adresse" type="text" autocomplete="street-address" required></div>
                     <div class="field-group"><label for="ville">Ville</label><input id="ville" name="ville" type="text" autocomplete="address-level2" required></div>
+
                     <div class="field-group"><label for="site_web">Site web <span class="optional">(optionnel)</span></label><input id="site_web" name="site_web" type="url" inputmode="url" placeholder="https://"></div>
                     <div class="field-group"><label for="instagram">Instagram <span class="optional">(optionnel)</span></label><input id="instagram" name="instagram" type="url" inputmode="url" placeholder="https://instagram.com/…"></div>
                 </div>

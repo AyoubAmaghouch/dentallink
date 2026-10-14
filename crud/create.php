@@ -106,7 +106,6 @@ try {
             throw new RuntimeException('Les liens web doivent être des URL HTTP ou HTTPS valides.');
         }
     }
-
     $documentPath = null;
     $documentUpload = $_FILES['document_verification'] ?? null;
     $documentRequested = is_array($documentUpload) && isset($documentUpload['name'])
