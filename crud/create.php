@@ -66,6 +66,7 @@ try {
             throw new RuntimeException('Veuillez remplir tous les champs obligatoires.');
         }
     }
+    validate_lab_field_lengths($data);
     if (!filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
         throw new RuntimeException('Veuillez saisir une adresse e-mail valide.');
     }
@@ -106,6 +107,7 @@ try {
             throw new RuntimeException('Les liens web doivent être des URL HTTP ou HTTPS valides.');
         }
     }
+    validate_lab_field_lengths(['site_web' => $website, 'instagram' => $instagram]);
     $documentPath = null;
     $documentUpload = $_FILES['document_verification'] ?? null;
     $documentRequested = is_array($documentUpload) && isset($documentUpload['name'])

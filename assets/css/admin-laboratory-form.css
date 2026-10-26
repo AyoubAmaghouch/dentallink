@@ -1,0 +1,39 @@
+/* Clear create/edit flow for administrator-managed laboratories. */
+.lab-form-panel{overflow:hidden;padding:0;border-color:#1a3d68;background:linear-gradient(145deg,#0a2042,#071832)}
+.lab-form-heading{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;padding:24px 28px;border-bottom:1px solid #17375e;background:linear-gradient(110deg,#0d2a52,#0a2042)}
+.lab-form-heading h2{margin:4px 0 5px;font-size:22px;letter-spacing:-.4px}
+.lab-form-heading p{margin:0;color:#adc4e2;font-size:12px}
+.form-kicker{color:#26c7f6;font-size:9px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase}
+.form-close-link{display:inline-flex;align-items:center;gap:8px;padding:8px 11px;border:1px solid #23466f;border-radius:9px;color:#c7d9ef;font-size:11px;text-decoration:none;white-space:nowrap}
+.form-close-link:hover{border-color:#26aefa;color:#fff}.form-close-link span{font-size:18px;line-height:12px}
+.lab-create-form{display:grid;gap:0}
+.lab-form-section{padding:24px 28px;border-bottom:1px solid #17375e}
+.lab-section-heading{display:flex;align-items:center;gap:12px;margin-bottom:18px}
+.lab-section-heading>span{display:grid;width:34px;height:34px;flex:0 0 34px;place-items:center;border:1px solid #1f5a8c;border-radius:10px;background:#0d3761;color:#35c7ff;font-size:11px;font-weight:800}
+.lab-section-heading h3{margin:0;color:#f1f6ff;font-size:14px}.lab-section-heading p{margin:3px 0 0;color:#9fb7d7;font-size:11px}
+.lab-form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:17px 20px}
+.lab-form-grid>label,.lab-form-description{display:grid;min-width:0;gap:7px;color:#d7e5f6;font-size:11px;font-weight:650}
+.lab-form-grid label i,.lab-form-description i,.lab-form-actions>span i{color:#39c8f5;font-style:normal}
+.lab-form-grid input,.lab-form-grid select,.lab-form-description textarea{box-sizing:border-box;width:100%;min-height:44px;margin:0;padding:10px 12px;border:1px solid #23466f;border-radius:9px;outline:0;background:#06152f;color:#f4f8ff;font:inherit;font-size:12px;transition:border-color .16s,box-shadow .16s}
+.lab-form-grid input::placeholder,.lab-form-description textarea::placeholder{color:#718bad}
+.lab-form-grid input:focus,.lab-form-grid select:focus,.lab-form-description textarea:focus{border-color:#168af5;box-shadow:0 0 0 3px #168af51f}
+.optional-label{margin-left:5px;color:#88a4c8;font-size:9px;font-weight:500}
+.lab-form-description textarea{min-height:112px;resize:vertical;line-height:1.6}
+.lab-service-picker{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:9px;margin:0;padding:0;border:0}
+.lab-service-option{display:flex;min-width:0;min-height:42px;align-items:center;gap:10px;padding:9px 11px;border:1px solid #1a3b62;border-radius:10px;background:#091c38;color:#c8d9ee;font-size:11px;line-height:1.4;cursor:pointer;transition:border-color .16s,background .16s,color .16s}
+.lab-service-option:hover{border-color:#2777b4;background:#0c274a;color:#fff}.lab-service-option:has(input:checked){border-color:#1387e9;background:#0b3561;color:#fff}
+.lab-service-option input{width:16px;height:16px;flex:0 0 16px;margin:0;accent-color:#0878ef}
+.visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;clip-path:inset(50%)}
+.lab-upload-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.lab-upload-card{display:grid;min-height:154px;align-content:start;justify-items:start;gap:7px;padding:16px;border:1px dashed #2a527d;border-radius:12px;background:#081a35;color:#ecf5ff;cursor:pointer}
+.lab-upload-card:hover{border-color:#178df1;background:#0b2141}.upload-card-icon{display:grid;width:34px;height:34px;margin-bottom:2px;place-items:center;border-radius:10px;background:#0c3762;color:#44c7ff;font-size:20px}
+.lab-upload-card strong{font-size:12px}.lab-upload-card small{color:#a6bddc;font-size:10px}
+.lab-upload-card input{box-sizing:border-box;width:100%;max-width:100%;margin-top:6px;color:#c5d7ec;font:inherit;font-size:10px}
+.migration-note{align-self:start;margin:0;padding:14px;border:1px solid #76591c;border-radius:10px;background:#3a2c12;color:#ffdc87;font-size:11px;line-height:1.5}
+.lab-existing-media{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:16px;padding:14px;border:1px solid #1b3d64;border-radius:10px;background:#06152e;color:#a9c0df;font-size:11px}
+.lab-existing-media>strong{color:#e3eefb}.lab-existing-media .media-grid{flex-basis:100%;padding-top:10px}
+.lab-form-actions{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 28px;background:#07172f}
+.lab-form-actions>span{color:#91aaca;font-size:10px}.lab-form-actions>div{display:flex;align-items:center;gap:9px}
+.lab-form-actions .admin-button{min-height:42px;padding:0 16px}.lab-form-actions .admin-primary{box-shadow:0 6px 18px #075ed333}
+@media(max-width:760px){.lab-form-heading,.lab-form-section{padding:20px}.lab-form-grid{gap:14px}.lab-service-picker{grid-template-columns:repeat(auto-fill,minmax(155px,1fr))}.lab-upload-grid{grid-template-columns:1fr}.lab-form-actions{align-items:stretch;flex-direction:column;padding:16px 20px}.lab-form-actions>div{width:100%}.lab-form-actions>div .admin-button{flex:1}}
+@media(max-width:480px){.lab-form-heading{padding:18px 16px}.lab-form-heading h2{font-size:19px}.lab-form-heading p{max-width:255px;line-height:1.5}.lab-form-section{padding:18px 16px}.lab-form-grid{grid-template-columns:1fr;gap:13px}.lab-section-heading{align-items:flex-start;margin-bottom:15px}.lab-section-heading>span{width:30px;height:30px;flex-basis:30px}.lab-service-picker{grid-template-columns:1fr}.lab-form-actions{padding:15px 16px}.lab-form-actions>div{flex-direction:column}.lab-form-actions>div .admin-button{width:100%}}

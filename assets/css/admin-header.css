@@ -1,0 +1,13 @@
+/* Branded admin navigation, loaded on the dashboard. */
+body:has(.admin-dashboard) .private-header { min-height:78px; gap:26px; padding:12px clamp(20px,4vw,60px); background:linear-gradient(110deg,#0C2048,#0A1A3A); box-shadow:0 8px 25px #0002; }
+body:has(.admin-dashboard) .private-brand { position:relative; display:flex; min-width:196px; align-items:center; gap:10px; padding-right:21px; border-right:1px solid var(--admin-line); text-decoration:none; }
+body:has(.admin-dashboard) .private-brand img { display:block; width:142px; height:auto; max-height:36px; object-fit:contain; filter:brightness(0) invert(1); }
+body:has(.admin-dashboard) .private-brand-tag { align-self:flex-end; margin:0 0 2px -7px; color:var(--admin-cyan); font-size:8px; font-weight:850; letter-spacing:1px; }
+body:has(.admin-dashboard) .private-navbar { justify-content:flex-start; gap:5px; }
+body:has(.admin-dashboard) .private-navbar a { padding:10px 12px; border-radius:9px; font-size:12px; text-decoration:none; transition:background .16s ease,color .16s ease; }
+body:has(.admin-dashboard) .private-navbar a.active { background:#FFFFFF12; color:#fff; box-shadow:inset 0 -2px var(--admin-cyan); }
+body:has(.admin-dashboard) .private-user { gap:10px; padding:6px 7px 6px 6px; border:1px solid #FFFFFF12; border-radius:12px; background:#FFFFFF08; }
+body:has(.admin-dashboard) .admin-avatar { width:34px; height:34px; border:1px solid #FFFFFF1A; font-size:13px; }
+body:has(.admin-dashboard) .private-user > span:last-of-type { max-width:220px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+@media(max-width:980px) { body:has(.admin-dashboard) .private-header { gap:14px; padding-right:20px; padding-left:20px; } body:has(.admin-dashboard) .private-brand { min-width:auto; padding-right:14px; } body:has(.admin-dashboard) .private-brand img { width:125px; } body:has(.admin-dashboard) .private-user > span:last-of-type { max-width:150px; } }
+@media(max-width:720px) { body:has(.admin-dashboard) .private-header { min-height:0; gap:9px; padding:10px 14px; } body:has(.admin-dashboard) .private-brand { padding-right:0; border-right:0; } body:has(.admin-dashboard) .private-brand img { width:132px; } body:has(.admin-dashboard) .private-brand-tag { display:none; } body:has(.admin-dashboard) .private-navbar { gap:3px; } body:has(.admin-dashboard) .private-navbar a { padding:9px 10px; } body:has(.admin-dashboard) .private-user { border:0; background:none; } }

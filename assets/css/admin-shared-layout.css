@@ -1,0 +1,26 @@
+/* Shared, fixed-dark admin styling for every page outside the dashboard shell. */
+html{color-scheme:dark;background:#06122f}
+body:not(.admin-dashboard-page):has(.admin-main){background:radial-gradient(ellipse at 82% 0%,#0a2850 0,transparent 32%),var(--admin-bg);color:var(--admin-text)}
+body:has(.admin-app-shell){min-height:100vh}.admin-app-shell{min-height:100vh}
+body.admin-dashboard-page .private-footer{margin-left:246px}
+@media(max-width:1250px){body.admin-dashboard-page .private-footer{margin-left:220px}body:not(.admin-dashboard-page):has(.admin-main) .private-footer{margin-left:220px}}
+body:not(.admin-dashboard-page):has(.admin-main) .private-header{position:sticky;top:0;z-index:20;min-height:74px;gap:26px;padding:10px clamp(20px,3vw,46px);background:#0a1c3deF;border-bottom:1px solid #23416b;box-shadow:0 8px 22px #0002;backdrop-filter:blur(14px)}
+body:not(.admin-dashboard-page):has(.admin-main) .private-brand.admin-brand{min-width:205px;padding-right:20px;border-right:1px solid #ffffff18}
+body:not(.admin-dashboard-page):has(.admin-main) .private-brand.admin-brand img{width:146px;max-height:40px}
+body:not(.admin-dashboard-page):has(.admin-main) .private-navbar{justify-content:flex-start;gap:5px;flex-wrap:nowrap}
+body:not(.admin-dashboard-page):has(.admin-main) .private-navbar a{padding:10px 12px;border-radius:9px;color:#b9cce6;font-size:12px;text-decoration:none;white-space:nowrap;transition:background .16s,color .16s}
+body:not(.admin-dashboard-page):has(.admin-main) .private-navbar a:hover{background:#ffffff0c;color:#fff}
+body:not(.admin-dashboard-page):has(.admin-main) .private-navbar a.active{background:#0875ef24;color:#fff;box-shadow:inset 0 -2px #12b9ff}
+body:not(.admin-dashboard-page):has(.admin-main) .private-user{gap:9px}
+body:not(.admin-dashboard-page):has(.admin-main) .private-user .admin-avatar{width:36px;height:36px;font-size:13px}
+body:not(.admin-dashboard-page):has(.admin-main) .private-user>span:last-of-type{max-width:240px;overflow:hidden;color:#d8e6f8;text-overflow:ellipsis;white-space:nowrap}
+body:not(.admin-dashboard-page):has(.admin-main) .admin-main:not(.login-admin){max-width:1540px;padding:32px clamp(20px,2.5vw,42px) 48px}
+body:not(.admin-dashboard-page):has(.admin-main) .admin-heading{margin-bottom:24px}
+body:not(.admin-dashboard-page):has(.admin-main) .admin-heading h1{letter-spacing:-1.1px}
+body:not(.admin-dashboard-page):has(.admin-main) .admin-panel{border-radius:14px;box-shadow:0 10px 30px #00000012}
+body:not(.admin-dashboard-page):has(.admin-main) .filters-panel{margin-bottom:16px}
+body:not(.admin-dashboard-page):has(.admin-main) .admin-table th{padding-top:13px;padding-bottom:13px}
+body:not(.admin-dashboard-page):has(.admin-main) .admin-table tbody tr:hover{background:#ffffff05}
+body:not(.admin-dashboard-page):has(.admin-main) .private-footer{margin-left:246px;background:#071833;border-color:#1a355c}
+@media(max-width:1100px){body:not(.admin-dashboard-page):has(.admin-main) .private-header{gap:14px;padding-right:18px;padding-left:18px}body:not(.admin-dashboard-page):has(.admin-main) .private-brand.admin-brand{min-width:155px;padding-right:12px}body:not(.admin-dashboard-page):has(.admin-main) .private-brand.admin-brand img{width:120px}body:not(.admin-dashboard-page):has(.admin-main) .private-navbar a{padding:9px 8px;font-size:11px}}
+@media(max-width:760px){body:not(.admin-dashboard-page):has(.admin-main) .private-header{position:relative;flex-wrap:wrap;gap:8px;padding:10px 14px}body:not(.admin-dashboard-page):has(.admin-main) .private-brand.admin-brand{min-width:0;padding-right:0;border:0}body:not(.admin-dashboard-page):has(.admin-main) .private-brand.admin-brand img{width:132px}body:not(.admin-dashboard-page):has(.admin-main) .private-brand-tag{display:none}body:not(.admin-dashboard-page):has(.admin-main) .private-navbar{order:3;flex-basis:100%;overflow-x:auto}body:not(.admin-dashboard-page):has(.admin-main) .private-user{margin-left:auto}body:not(.admin-dashboard-page):has(.admin-main) .private-user>span:last-of-type{display:none}body:not(.admin-dashboard-page):has(.admin-main) .admin-main:not(.login-admin){padding:22px 14px 34px}body:not(.admin-dashboard-page):has(.admin-main) .private-footer{margin-left:0}body.admin-dashboard-page .private-footer{margin-left:0}}

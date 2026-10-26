@@ -16,8 +16,9 @@ function admin_validate_lab(array $input, bool $new = false): array {
     $data = [];
     foreach (['nom_laboratoire','nom_gerant','telephone','email','adresse','ville','description'] as $field) { $data[$field] = trim((string)($input[$field] ?? '')); if ($data[$field] === '') throw new RuntimeException('Tous les champs obligatoires doivent être renseignés.'); }
     if (!filter_var($data['email'], FILTER_VALIDATE_EMAIL)) throw new RuntimeException('Adresse e-mail invalide.');
-    foreach (['nom_laboratoire'=>150,'nom_gerant'=>100,'telephone'=>30,'email'=>150,'ville'=>100] as $field => $max) if (mb_strlen($data[$field]) > $max) throw new RuntimeException('Un champ dépasse la longueur maximale autorisée.');
+    validate_lab_field_lengths($data);
     foreach (['site_web','instagram'] as $field) { $url = trim((string)($input[$field] ?? '')); if ($url !== '' && (!filter_var($url, FILTER_VALIDATE_URL) || !in_array(strtolower((string)parse_url($url, PHP_URL_SCHEME)), ['http','https'], true))) throw new RuntimeException('Les liens web doivent être des URL HTTP ou HTTPS valides.'); $data[$field] = $url ?: null; }
+    validate_lab_field_lengths($data);
     if ($new) { $password = (string)($input['mot_de_passe'] ?? ''); if (strlen($password) < 10) throw new RuntimeException('Le mot de passe initial doit contenir au moins 10 caractères.'); $data['mot_de_passe'] = password_hash($password, PASSWORD_DEFAULT); }
     return $data;
 }

@@ -1,0 +1,57 @@
+/* Service editor and catalog workspace. */
+.admin-services-page .services-page-heading{align-items:flex-end}
+.admin-services-page .services-page-heading .admin-muted{margin-top:6px;font-size:13px}
+.services-workspace{grid-template-columns:minmax(280px,.72fr) minmax(0,1.65fr);align-items:start;gap:18px;margin:0}
+.services-workspace>.admin-panel{min-width:0;margin:0;padding:22px;border-color:#173b66;border-radius:16px;background:linear-gradient(145deg,#0a2042,#071832)}
+.service-editor-panel{position:relative;overflow:hidden}
+.service-editor-panel:before{position:absolute;top:0;right:0;left:0;height:3px;background:linear-gradient(90deg,#0878ef,#16c4ef);content:""}
+.service-editor-heading{display:grid;justify-items:start}
+.service-editor-icon{display:grid;width:44px;height:44px;margin-bottom:17px;place-items:center;border:1px solid #1b5285;border-radius:13px;background:#0d3761;color:#4bcaff}
+.service-editor-icon svg{width:23px;height:23px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.service-editor-kicker{color:#2fc4f5;font-size:9px;font-weight:800;letter-spacing:1.35px;text-transform:uppercase}
+.service-editor-heading h2,.service-catalog-heading h2{margin:5px 0;color:#f1f6ff;font-size:18px;letter-spacing:-.3px}
+.service-editor-heading p,.service-catalog-heading p{margin:0;color:#9fb7d7;font-size:11px;line-height:1.55}
+.service-editor-form{display:grid;gap:9px;margin-top:23px}
+.service-editor-form>label{color:#dce8f7;font-size:11px;font-weight:700}
+.service-editor-form>label i{color:#32c8f5;font-style:normal}
+.service-editor-form>input{box-sizing:border-box;width:100%;height:45px;padding:0 12px;border:1px solid #244871;border-radius:10px;outline:0;background:#06152f;color:#f4f8ff;font:inherit;font-size:12px;transition:border-color .16s,box-shadow .16s}
+.service-editor-form>input::placeholder{color:#718bad}
+.service-editor-form>input:focus{border-color:#168af5;box-shadow:0 0 0 3px #168af51f}
+.service-input-meta{display:flex;justify-content:space-between;gap:8px;color:#8fa9ca;font-size:9px}
+.service-save-button{display:flex;min-height:43px;gap:8px;margin-top:9px;border-radius:10px}
+.service-save-button span{font-size:16px;line-height:1}
+.service-cancel-link{justify-self:center;margin-top:2px;color:#a9c1df;font-size:10px;text-decoration:none}
+.service-cancel-link:hover{color:#fff;text-decoration:underline}
+.service-editor-tip{display:flex;align-items:flex-start;gap:9px;margin-top:23px;padding:12px;border:1px solid #17395f;border-radius:10px;background:#081a34}
+.service-editor-tip>span{display:grid;width:18px;height:18px;flex:0 0 18px;place-items:center;border-radius:50%;background:#0c3962;color:#4bcaff;font-size:11px;font-weight:800}
+.service-editor-tip p{margin:0;color:#a8bfdd;font-size:10px;line-height:1.55}
+.service-catalog-panel{overflow:hidden}
+.service-catalog-heading{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.service-catalog-heading h2{margin:4px 0 2px}
+.service-count-badge{display:grid;min-width:42px;height:42px;padding:0 8px;place-items:center;border:1px solid #1d5484;border-radius:13px;background:#0b3560;color:#61ceff;font-size:15px;font-weight:800}
+.service-catalog-search{display:flex;min-height:43px;align-items:center;gap:10px;margin:19px 0 14px;padding:4px 5px 4px 12px;border:1px solid #20446e;border-radius:11px;background:#06152f}
+.service-catalog-search>svg{width:18px;height:18px;flex:0 0 18px;fill:none;stroke:#82b7e8;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.service-catalog-search input{flex:1;width:auto;min-width:0;height:34px;padding:0;border:0;border-radius:0;outline:0;background:transparent;color:#f3f8ff;font:inherit;font-size:11px}
+.service-catalog-search input:focus{box-shadow:none}.service-catalog-search input::placeholder{color:#829bbb}
+.service-catalog-search .admin-button{min-height:34px;padding:0 12px;border-radius:8px;font-size:10px}
+.service-clear-search{color:#9db6d5;font-size:10px;text-decoration:none;white-space:nowrap}
+.service-table-wrap{overflow-x:auto}
+.service-table{min-width:560px}
+.service-table th{padding:12px 10px!important;border-bottom-color:#23466d!important}
+.service-table td{padding:11px 10px!important}
+.service-table tbody tr{transition:background .14s}
+.service-table tbody tr:hover{background:#ffffff07}
+.service-name-cell{display:flex;align-items:center;gap:10px;min-width:180px}
+.service-name-cell strong{color:#eaf3ff;font-size:11px;font-weight:650}
+.service-row-icon{display:grid;width:29px;height:29px;flex:0 0 29px;place-items:center;border:1px solid #193f68;border-radius:9px;background:#0b2b50;color:#42c6ff;font-size:12px}
+.service-lab-count{display:inline-grid;min-width:25px;height:25px;margin-right:7px;padding:0 6px;place-items:center;border-radius:8px;background:#0d2c50;color:#d6e8fb;font-size:10px;font-weight:750}
+.service-lab-label{color:#a8bfdd;font-size:10px}
+.service-row-actions{display:flex;align-items:center;justify-content:flex-end;gap:7px;white-space:nowrap}
+.service-edit-action,.service-delete-action{display:inline-flex;min-height:30px;align-items:center;justify-content:center;padding:0 9px;border:1px solid transparent;border-radius:8px;background:transparent;font:inherit;font-size:10px;text-decoration:none;cursor:pointer}
+.service-edit-action{border-color:#234b75;color:#b9d9fb}.service-edit-action:hover{border-color:#2188dd;background:#0b2c50;color:white}
+.service-delete-action{color:#ff8993}.service-delete-action:hover{border-color:#743947;background:#401d2a;color:#ffc0c4}
+.service-empty-state{display:grid;min-height:220px;align-content:center;justify-items:center;text-align:center}
+.service-empty-state>span{color:#39c3f5;font-size:28px}.service-empty-state strong{margin-top:5px;color:#eff6ff;font-size:13px}.service-empty-state p{margin:4px 0 0;color:#9fb7d7;font-size:10px}
+.admin-services-page .visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;clip-path:inset(50%)}
+@media(max-width:1100px){.services-workspace{grid-template-columns:1fr}.service-editor-panel{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);column-gap:24px;align-items:start}.service-editor-heading{grid-row:span 2}.service-editor-form{margin-top:0}.service-editor-tip{grid-column:2;margin-top:14px}}
+@media(max-width:650px){.services-workspace>.admin-panel{padding:17px}.service-editor-panel{display:block}.service-editor-heading{display:grid}.service-editor-form{margin-top:18px}.service-editor-tip{margin-top:18px}.service-catalog-search{gap:7px;padding-left:9px}.service-catalog-search .admin-button{padding:0 8px}.service-catalog-heading h2{font-size:16px}.service-table{min-width:510px}}

@@ -1,0 +1,20 @@
+.admin-confirm-dialog{width:min(460px,calc(100% - 32px));max-width:none;max-height:calc(100% - 32px);padding:0;overflow:visible;border:1px solid #2a4e7b;border-radius:18px;background:transparent;color:#f4f8ff;box-shadow:0 28px 90px #0009}
+.admin-confirm-dialog::backdrop{background:#020a18c9;backdrop-filter:blur(5px)}
+.admin-confirm-card{display:grid;grid-template-columns:48px minmax(0,1fr);gap:14px;padding:23px;background:linear-gradient(145deg,#10264a,#091a37);border-radius:17px}
+.admin-confirm-icon{display:grid;place-items:center;width:44px;height:44px;border:1px solid #805529;border-radius:13px;background:#422d1b;color:#ffc36b;font-size:20px;font-weight:800}
+.admin-confirm-copy{min-width:0}
+.admin-confirm-eyebrow{margin:0 0 4px;color:#7edcf1;font-size:9px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase}
+.admin-confirm-copy h2{margin:0;color:#f5f8ff;font-size:17px;letter-spacing:-.25px}
+.admin-confirm-message{margin:8px 0 0;color:#b5c5db;font-size:12px;line-height:1.6;overflow-wrap:anywhere}
+.admin-confirm-actions{grid-column:1/-1;display:flex;justify-content:flex-end;gap:9px;margin-top:5px;padding-top:15px;border-top:1px solid #213d64}
+.admin-confirm-actions .admin-button{min-height:38px}
+.admin-confirm-actions .admin-red{background:#9a2938;border-color:#b53c4b}
+.admin-confirm-actions .admin-red:hover{background:#b83245}
+.admin-confirm-actions .admin-green{background:#078656;border-color:#0aa56a;color:#fff}
+.admin-confirm-actions .admin-green:hover{background:#079b63}
+@media(max-width:460px){.admin-confirm-card{grid-template-columns:40px minmax(0,1fr);gap:11px;padding:18px}.admin-confirm-icon{width:38px;height:38px}.admin-confirm-actions{flex-direction:column-reverse}.admin-confirm-actions .admin-button{width:100%}}
+.admin-alert{position:relative;display:flex;align-items:center;gap:10px;margin:0 0 16px;padding:13px 16px 13px 44px;border:1px solid #238254;border-radius:11px;background:#0d382f;color:#c9f7dc;box-shadow:0 10px 24px #0002;font-size:12px;transition:opacity .3s,transform .3s}
+.admin-alert::before{position:absolute;left:15px;display:grid;place-items:center;width:19px;height:19px;border-radius:50%;background:#22a76c;color:#fff;content:'✓';font-size:12px;font-weight:800}
+.admin-alert.error{border-color:#8a394d;background:#401c2b;color:#ffd1d5}
+.admin-alert.error::before{background:#c44859;content:'!'}
+.admin-alert-dismissed{opacity:0;transform:translateY(-6px)}

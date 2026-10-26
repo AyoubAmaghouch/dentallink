@@ -1,0 +1,75 @@
+.admin-laboratories-page{--labs-card:#0b1d40;--labs-border:#1a3a67}
+.labs-page-heading{display:flex;align-items:center;justify-content:space-between;gap:24px;margin:0 0 25px}
+.labs-heading-copy{min-width:0}
+.labs-heading-copy .admin-eyebrow{margin:0 0 7px}
+.labs-heading-copy .admin-eyebrow span{padding:0 5px;color:#607c9f}
+.labs-heading-copy h1{margin:0;font-size:clamp(30px,3vw,40px);letter-spacing:-1.2px;line-height:1.15}
+.labs-heading-meta{display:flex;align-items:center;flex-wrap:wrap;gap:12px;margin-top:11px}
+.labs-result-count{display:inline-flex;align-items:center;gap:5px;padding:5px 10px;border:1px solid #27446c;border-radius:99px;background:#0b1d40;color:#b9cce6;font-size:12px}
+.labs-result-count strong{color:#fff}
+.labs-date-note{display:inline-flex;align-items:center;gap:7px;color:#a9bad1;font-size:12px}
+.labs-date-note>span{display:grid;place-items:center;width:17px;height:17px;border:1px solid #41638b;border-radius:50%;color:#72d8ed;font-size:11px;font-weight:800}
+.labs-add-button{min-height:42px;padding:10px 16px;white-space:nowrap}
+.labs-add-button>span{margin-right:5px;font-size:16px;line-height:1}
+.labs-filter-panel,.labs-results-panel{padding:0;overflow:hidden}
+.labs-filter-heading,.labs-results-heading{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:17px 19px;border-bottom:1px solid #1c365d}
+.labs-filter-heading>div,.labs-results-heading>div{display:flex;align-items:center;gap:11px;min-width:0}
+.labs-filter-heading h2,.labs-results-heading h2{margin:0;color:#f4f8ff;font-size:14px;letter-spacing:-.1px}
+.labs-filter-heading p,.labs-results-heading p{margin:3px 0 0;color:#9fb4d0;font-size:11px}
+.labs-filter-heading>span{color:#a7bdd9;font-size:11px;white-space:nowrap}
+.labs-panel-icon{display:grid;flex:0 0 34px;place-items:center;width:34px;height:34px;border:1px solid #204a7a;border-radius:10px;background:#0d2a51;color:#28c5f1;font-size:20px;line-height:1}
+.labs-filters-form{display:grid;grid-template-columns:minmax(220px,1.6fr) repeat(4,minmax(130px,1fr)) auto;align-items:center;gap:9px;padding:16px 19px 18px}
+.labs-filters-form>label,.labs-search-field{min-width:0}
+.labs-filters-form select,.labs-search-field input{width:100%;height:42px;min-width:0;border:1px solid #25436e;border-radius:9px;outline:0;background:#071632;color:#e8f1ff;padding:0 12px;font:inherit;font-size:12px;transition:border-color .16s,box-shadow .16s}
+.labs-filters-form select{cursor:pointer}
+.labs-filters-form select:focus,.labs-search-field input:focus{border-color:#159be9;box-shadow:0 0 0 3px #159be926}
+.labs-search-field{position:relative;display:block}
+.labs-search-field>span{position:absolute;top:50%;left:13px;transform:translateY(-54%);color:#6db8ed;font-size:22px;pointer-events:none}
+.labs-search-field input{padding-left:40px}
+.labs-search-field input::placeholder{color:#8499b6}
+.labs-filter-actions{display:flex;align-items:center;gap:7px}
+.labs-filter-actions .admin-button{height:42px;padding:0 13px;white-space:nowrap}
+.labs-results-panel{margin-top:16px}
+.labs-page-indicator{padding:6px 10px;border:1px solid #1d3b66;border-radius:8px;background:#081a38;color:#c2d3ea;font-size:11px;white-space:nowrap}
+.labs-page-indicator span{padding:0 3px;color:#7189a9}
+.labs-table-wrap{padding:0 16px 7px}
+.labs-table{min-width:1000px;border-collapse:separate;border-spacing:0}
+.labs-table th{padding:13px 11px!important;color:#86a4c8!important;font-size:9px!important;letter-spacing:.8px!important}
+.labs-table td{padding:14px 11px!important;color:#d6e3f5;font-size:11px!important;line-height:1.5}
+.labs-table tbody tr:last-child td{border-bottom:0}
+.labs-table tbody tr:hover{background:#10264a!important}
+.labs-table th:first-child,.labs-table td:first-child{padding-left:8px!important}
+.labs-identity{display:flex;align-items:center;gap:11px;min-width:160px}
+.labs-identity>img,.labs-avatar{display:grid;flex:0 0 42px;place-items:center;width:42px;height:42px;border:1px solid #2a4a75;border-radius:12px;object-fit:cover;background:#102c54;color:#6bdcff;font-size:15px;font-weight:800}
+.labs-identity>div{display:grid;gap:3px;min-width:0}
+.labs-identity strong{max-width:170px;overflow:hidden;color:#f4f8ff;font-size:12px;text-overflow:ellipsis;white-space:nowrap}
+.labs-identity>div>span{color:#87a1c2;font-size:10px}
+.labs-contact{display:grid;gap:3px;min-width:150px}
+.labs-contact strong{color:#e6effb;font-size:11px;font-weight:650}
+.labs-contact a{max-width:210px;overflow:hidden;color:#9fc5f6;font-size:10px;text-overflow:ellipsis;white-space:nowrap;text-decoration:none}
+.labs-contact a:hover,.labs-edit-action:hover{text-decoration:underline}
+.labs-city{display:inline-flex;align-items:center;gap:6px;white-space:nowrap}
+.labs-city>span{color:#45c9ee;font-size:15px}
+.labs-service-list{display:-webkit-box;max-width:290px;overflow:hidden;color:#afc1d9;line-height:1.55;-webkit-box-orient:vertical;-webkit-line-clamp:2}
+.labs-date-value{color:#9cb1cb;white-space:nowrap}
+.labs-table .status-badge{gap:6px;padding:6px 9px;font-size:10px}
+.labs-table .status-badge>span{width:6px;height:6px;border-radius:50%;background:currentColor}
+.labs-row-actions{display:grid;justify-items:start;gap:5px;min-width:105px}
+.labs-edit-action{display:inline-flex;align-items:center;gap:5px;color:#85c9ff;font-size:11px;font-weight:700;text-decoration:none;white-space:nowrap}
+.labs-edit-action span{font-size:14px}
+.labs-row-actions .danger-link{padding:0;color:#fb858e;font-size:10px}
+.labs-empty-state{display:grid;justify-items:center;gap:8px;min-height:225px;align-content:center;text-align:center}
+.labs-empty-state>span{display:grid;place-items:center;width:46px;height:46px;border:1px solid #24517c;border-radius:14px;background:#0d2a51;color:#5cccf1;font-size:27px}
+.labs-empty-state strong{color:#eff6ff;font-size:14px}
+.labs-empty-state p{margin:0 0 5px;color:#a9bdd6;font-size:11px}
+.labs-empty-state .admin-button{font-size:11px}
+.labs-pagination{align-items:center;justify-content:space-between;margin:0 19px;padding:13px 0 17px;border-top:1px solid #1c365d}
+.labs-pagination>a{padding:7px 11px;border:1px solid #25436e;border-radius:8px;color:#b8d7f7;text-decoration:none}
+.labs-pagination>a:hover{border-color:#159be9;background:#0d2a51}
+.labs-pagination>span{color:#a9bdd6}
+.labs-pagination>span strong{color:#f4f8ff}
+.admin-laboratories-page .lab-form-panel{margin-bottom:17px}
+.admin-laboratories-page .visually-hidden{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media(max-width:1120px){.labs-filters-form{grid-template-columns:repeat(4,minmax(0,1fr))}.labs-search-field{grid-column:span 2}.labs-filter-actions{grid-column:span 2;justify-content:flex-end}}
+@media(max-width:720px){.labs-page-heading{align-items:flex-start;flex-direction:column;gap:15px}.labs-add-button{align-self:stretch}.labs-filter-heading,.labs-results-heading{padding:14px}.labs-filters-form{grid-template-columns:repeat(2,minmax(0,1fr));padding:13px;gap:8px}.labs-search-field{grid-column:1/-1}.labs-filter-actions{grid-column:1/-1;justify-content:stretch}.labs-filter-actions .admin-button{flex:1}.labs-table-wrap{padding:0 10px 5px}.labs-table{min-width:960px}.labs-results-heading p{max-width:210px}.labs-pagination{margin:0 13px}}
+@media(max-width:420px){.labs-heading-meta{align-items:flex-start;flex-direction:column;gap:8px}.labs-date-note{align-items:flex-start}.labs-filters-form{grid-template-columns:1fr}.labs-search-field,.labs-filter-actions{grid-column:auto}.labs-filter-heading>span{display:none}.labs-page-indicator{font-size:10px}}

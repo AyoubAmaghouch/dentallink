@@ -26,6 +26,10 @@
 .stat-icon-status { background:#EAF8F0; color:#15803D!important; }
 .stat-icon-photos { background:#E5F8FC; color:#087BFF!important; }
 .stat-icon-date { background:#F0EEFF; color:#6255C8!important; }
+.stat-icon svg,.contact-list dt span svg,.dashboard-icon-link svg,.dashboard-empty-photo > span svg { display:block; width:19px; height:19px; fill:none; stroke:currentColor; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
+.stat-icon-services svg { width:20px; height:20px; }
+.dashboard-icon-link svg { width:16px; height:16px; }
+.contact-list dt span svg { width:14px; height:14px; }
 .dashboard-stats .lab-stat > div { min-width:0; }
 .dashboard-stats .lab-stat > div > span { color:var(--lab-muted); font-size:11px; }
 .dashboard-stats .lab-stat strong { margin-top:7px; font-size:27px; }
@@ -60,7 +64,8 @@
 .dashboard-photos-card .lab-photos { grid-template-columns:repeat(3,minmax(0,1fr)); gap:8px; }
 .dashboard-photos-card .lab-photo { height:auto; aspect-ratio:1.15; border-radius:10px; object-fit:cover; }
 .dashboard-empty-photo { display:grid; min-height:120px; place-content:center; justify-items:center; border:1px dashed #D8E6FA; border-radius:12px; background:#F8FBFF; color:#7D8EA8; }
-.dashboard-empty-photo > span { color:#9BB8DF; font-size:26px; }
+.dashboard-empty-photo > span { color:#9BB8DF; }
+.dashboard-empty-photo > span svg { width:28px; height:28px; }
 .dashboard-empty-photo p { margin:4px 0; font-size:11px; }
 .dashboard-empty-photo a { color:var(--lab-blue); font-size:11px; font-weight:750; text-decoration:none; }
 .private-header .lab-private-brand { min-width:190px; }

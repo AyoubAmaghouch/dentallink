@@ -22,6 +22,12 @@ $escapeHead = static fn(string $value): string => htmlspecialchars($value, ENT_Q
     <?php foreach ($pageStyles as $stylesheet): ?>
     <link rel="stylesheet" href="<?= $escapeHead($assetPrefix . ltrim($stylesheet, '/')) ?>">
     <?php endforeach; ?>
-    <?php if (!empty($pageStyles) && in_array('assets/css/admin.css', $pageStyles, true)): ?><script>try{document.documentElement.dataset.theme=localStorage.getItem('dentallink-admin-theme')||'dark'}catch(e){document.documentElement.dataset.theme='dark'}</script><?php endif; ?>
+    <?php if (in_array('assets/css/admin.css', $pageStyles, true)): ?>
+    <link rel="stylesheet" href="<?= $escapeHead($assetPrefix . 'assets/css/admin-brand.css') ?>">
+    <?php if (!in_array('assets/css/admin-dashboard-layout.css', $pageStyles, true)): ?><link rel="stylesheet" href="<?= $escapeHead($assetPrefix . 'assets/css/admin-dashboard-layout.css') ?>"><?php endif; ?>
+    <link rel="stylesheet" href="<?= $escapeHead($assetPrefix . 'assets/css/admin-shared-layout.css') ?>">
+    <link rel="stylesheet" href="<?= $escapeHead($assetPrefix . 'assets/css/admin-confirm-dialog.css') ?>">
+    <?php endif; ?>
+    <?php if (!empty($pageStyles) && in_array('assets/css/admin.css', $pageStyles, true)): ?><script>document.documentElement.dataset.theme='dark'</script><?php endif; ?>
 </head>
 <body<?= $bodyClass !== '' ? ' class="' . $escapeHead($bodyClass) . '"' : '' ?>>

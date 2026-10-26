@@ -3,6 +3,8 @@ declare(strict_types=1);
 require_once __DIR__.'/../config/database.php';
 if(session_status()!==PHP_SESSION_ACTIVE){session_set_cookie_params(['httponly'=>true,'secure'=>!empty($_SERVER['HTTPS']),'samesite'=>'Lax']);session_start();}
 function e(?string $v):string{return htmlspecialchars($v??'',ENT_QUOTES|ENT_SUBSTITUTE,'UTF-8');}
+function utf8_length(string $value):int{if(function_exists('mb_strlen'))return mb_strlen($value,'UTF-8');$length=preg_match_all('/./us',$value,$matches);return $length===false?PHP_INT_MAX:$length;}
+function validate_lab_field_lengths(array $data):void{$limits=['nom_laboratoire'=>150,'nom_gerant'=>100,'telephone'=>20,'email'=>100,'adresse'=>255,'ville'=>100,'site_web'=>255,'instagram'=>255];foreach($limits as $field=>$max){if(isset($data[$field])&&utf8_length((string)$data[$field])>$max)throw new RuntimeException('Un champ dépasse la longueur maximale autorisée.');}}
 function safe_http_url(mixed $url):string{$url=trim((string)$url);if($url===''||!filter_var($url,FILTER_VALIDATE_URL))return ''; $scheme=strtolower((string)parse_url($url,PHP_URL_SCHEME));$host=(string)parse_url($url,PHP_URL_HOST);return $host!==''&&in_array($scheme,['http','https'],true)?$url:'';}
 function text_excerpt(string $text,int $max=130):string{$text=trim($text);if(function_exists('mb_strimwidth'))return mb_strimwidth($text,0,$max,'…','UTF-8');$chars=preg_split('//u',$text,-1,PREG_SPLIT_NO_EMPTY);if($chars===false)return substr($text,0,$max);return count($chars)>$max?implode('',array_slice($chars,0,$max-1)).'…':$text;}
 function csrf_token():string{if(empty($_SESSION['csrf_token']))$_SESSION['csrf_token']=bin2hex(random_bytes(32));return $_SESSION['csrf_token'];}
